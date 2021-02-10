@@ -1,0 +1,10 @@
+FROM php:7.2-fpm
+
+RUN apt-get update && apt-get install -y libmcrypt-dev mariadb-client libpng-dev libzip-dev zip \
+    && pecl install mcrypt-1.0.3 && docker-php-ext-install pdo_mysql && docker-php-ext-enable mcrypt && docker-php-ext-install gd && docker-php-ext-configure zip --with-libzip && docker-php-ext-install zip && docker-php-ext-install calendar && docker-php-ext-configure calendar
+RUN echo "max_file_uploads=100" >> /usr/local/etc/php/conf.d/docker-php-ext-max_file_uploads.ini
+RUN echo "post_max_size=1G" >> /usr/local/etc/php/conf.d/docker-php-ext-post_max_size.ini
+RUN echo "upload_max_filesize=1G" >> /usr/local/etc/php/conf.d/docker-php-ext-upload_max_filesize.ini
+RUN echo "memory_limit=256M" >> /usr/local/etc/php/conf.d/docker-php-ext-memory_limit.ini
+
+WORKDIR /var/www
