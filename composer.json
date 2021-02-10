@@ -36,7 +36,8 @@
         "robincsamuel/laravel-msg91": "dev-master",
         "stripe/stripe-php": "^7.37",
         "twilio/sdk": "^5.31",
-        "unicodeveloper/laravel-paystack": "^1.0"
+        "unicodeveloper/laravel-paystack": "^1.0",
+        "predis/predis": "1.1.6"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
